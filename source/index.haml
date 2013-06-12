@@ -1,0 +1,37 @@
+!!! 5
+%html.no-js(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %title Pure CoffeeScript Todo app
+    %meta(name="description" content="")
+    %meta(name="viewport" content="width=device-width, initial-scale=1")
+    %link(href="/favicon.ico" shortcut="shortcut icon")
+    %link(href="stylesheets/screen.css" rel="stylesheet")
+  %body
+
+    #main(role="main")
+
+    %script(id="todo-list" type="text/x-handlebars-template")
+      :plain
+        <form action="#" method="post">
+          <input type="text" class="new-todo" placeholder="What needs to be done?" />
+        </form>
+        <ul id="todos"></ul>
+        <p class="clear"><a href="#">Clear completed</a></p>
+
+    %script(id="todo" type="text/x-handlebars-template")
+      :plain
+        <input type="checkbox" class="complete" {{#if todo.complete}}checked{{/if}} />
+        <strong>{{todo.name}}</strong>
+        <input class="edit" value="{{todo.name}}" />
+        <a class="remove" href="#">Remove</a>
+
+    %script(src="javascripts/vendor/jquery.min.js")
+    %script(src="javascripts/vendor/handlebars.js")
+    
+    %script(src="javascripts/lib/base/view.js")
+    %script(src="javascripts/lib/models/todo.js")
+    %script(src="javascripts/lib/views/todo.js")
+    %script(src="javascripts/lib/views/todos.js")
+    
+    %script(src="javascripts/application.js")
